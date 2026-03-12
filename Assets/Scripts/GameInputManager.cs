@@ -7,6 +7,8 @@ public class GameInputManager : MonoBehaviour
 
     public event Action OnAttackPressed;
     public event Action OnJumpPressed;
+    public event Action OnCrouchStart;
+    public event Action OnCrouchEnd;
 
     public Vector2 MovementInput { get; private set; }
 
@@ -25,6 +27,7 @@ public class GameInputManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space)) Debug.Log("Spacebar Pressed!");
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         MovementInput = new Vector2(moveX, moveY).normalized;
@@ -34,9 +37,19 @@ public class GameInputManager : MonoBehaviour
             OnAttackPressed?.Invoke();
         }
 
-        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             OnJumpPressed?.Invoke();
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            OnCrouchStart?.Invoke();
+        }
+
+        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            OnCrouchEnd?.Invoke();
         }
     }
 }
