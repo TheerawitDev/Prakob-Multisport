@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5839504194222537588}
   - component: {fileID: 152743063899396729}
+  - component: {fileID: 384024344021791442}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Player
@@ -87,6 +88,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!95 &384024344021791442
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609946092862830619}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9a5644ec4ed43841bfd3fce1400bf96, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7368661564573049815
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +284,7 @@ MonoBehaviour:
   damageAmount: 34
   targetTag: Player
   destroyOnHit: 1
+  hitEffect: {fileID: 0}
 --- !u!114 &5414115158523544633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,3 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 10
   deathEffect: {fileID: 0}
+  visualTransform: {fileID: 5839504194222537588}
+  lieDownDuration: 1
+  lieDownRotationZ: -90
+  sinkDepth: 1
