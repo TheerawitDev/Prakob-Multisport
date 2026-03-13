@@ -5,8 +5,13 @@ public class DualCombatController : MonoBehaviour
 {
     public GameObject leftHitbox;
     public GameObject rightHitbox;
+    public ParticleSystem leftParticle;
+    public ParticleSystem rightParticle;
     public float attackDuration = 0.1f;
+    public float attackCooldown = 0.2f;
     public Transform visualTransform;
+
+    private bool canAttack = true;
 
     private void Start()
     {
@@ -27,25 +32,45 @@ public class DualCombatController : MonoBehaviour
 
     private void AttackLeft()
     {
+        if (!canAttack) return;
+
         if (visualTransform != null)
             visualTransform.localScale = new Vector3(-Mathf.Abs(visualTransform.localScale.x), visualTransform.localScale.y, visualTransform.localScale.z);
+
+        if (leftParticle != null)
+        {
+            leftParticle.Stop();
+            leftParticle.Play();
+        }
 
         StartCoroutine(AttackRoutine(leftHitbox));
     }
 
     private void AttackRight()
     {
+        if (!canAttack) return;
+
         if (visualTransform != null)
             visualTransform.localScale = new Vector3(Mathf.Abs(visualTransform.localScale.x), visualTransform.localScale.y, visualTransform.localScale.z);
+
+        if (rightParticle != null)
+        {
+            rightParticle.Stop();
+            rightParticle.Play();
+        }
 
         StartCoroutine(AttackRoutine(rightHitbox));
     }
 
     private IEnumerator AttackRoutine(GameObject hitbox)
     {
-        if (hitbox == null) yield break;
-        hitbox.SetActive(true);
+        canAttack = false;
+
+        if (hitbox != null) hitbox.SetActive(true);
         yield return new WaitForSeconds(attackDuration);
-        hitbox.SetActive(false);
+        if (hitbox != null) hitbox.SetActive(false);
+
+        yield return new WaitForSeconds(attackCooldown);
+        canAttack = true;
     }
 }
