@@ -9,11 +9,20 @@ public class LevelGenerator : MonoBehaviour
     public float spawnDistance = 20f;
     public int initialChunks = 3;
 
+    public float speedIncreasePerChunk = 0.2f;
+    public float maxPlayerSpeed = 15f;
+
     private Vector3 nextSpawnPosition;
     private Queue<LevelChunk> spawnedChunks = new Queue<LevelChunk>();
+    private PlayerController2D playerController;
 
     private void Start()
     {
+        if (player != null)
+        {
+            playerController = player.GetComponent<PlayerController2D>();
+        }
+
         nextSpawnPosition = startChunk.endPoint.position;
         spawnedChunks.Enqueue(startChunk);
 
@@ -49,6 +58,12 @@ public class LevelGenerator : MonoBehaviour
         {
             LevelChunk oldChunk = spawnedChunks.Dequeue();
             Destroy(oldChunk.gameObject);
+
+            if (playerController != null && playerController.runSpeed < maxPlayerSpeed)
+            {
+                playerController.runSpeed += speedIncreasePerChunk;
+                playerController.runSpeed = Mathf.Min(playerController.runSpeed, maxPlayerSpeed);
+            }
         }
     }
 }

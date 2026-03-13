@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -370278219, guid: 5ef3ca7e743290d448e5e48c3d4ebc9c, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -787,7 +787,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -370278219, guid: 5ef3ca7e743290d448e5e48c3d4ebc9c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 4.5
-  jumpForce: 7.5
+  jumpForce: 5.5
   fallMultiplier: 2.5
   groundCheck: {fileID: 194900910}
   groundCheckRadius: 0.2
@@ -1473,6 +1473,7 @@ MonoBehaviour:
   chunkPrefabs:
   - {fileID: 7802274379624451709, guid: c655cc91d0f0b994fb71373d9456064d, type: 3}
   - {fileID: 7802274379624451709, guid: 941bc7f42630b0d4fb1840876933364c, type: 3}
+  - {fileID: 7802274379624451709, guid: d7f3a33e934b1964a88c5bf75ea5f918, type: 3}
   player: {fileID: 888477004}
   spawnDistance: 20
   initialChunks: 3
