@@ -5,6 +5,7 @@ public class DamageDealer2D : MonoBehaviour
     public int damageAmount = 10;
     public string targetTag = "Player";
     public bool destroyOnHit = false;
+    public GameObject hitEffect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -14,7 +15,12 @@ public class DamageDealer2D : MonoBehaviour
             if (targetHealth != null)
             {
                 targetHealth.TakeDamage(damageAmount);
-                Debug.Log("HIT");
+
+                if (hitEffect != null)
+                {
+                    Instantiate(hitEffect, transform.position, Quaternion.identity);
+                }
+
                 if (destroyOnHit)
                 {
                     Destroy(gameObject);
