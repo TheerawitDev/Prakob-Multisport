@@ -1,37 +1,60 @@
 using UnityEngine;
-using System;
+using System.Collections.Generic;
+
+public enum InputActionType
+{
+    LiftLeftPlatform,
+    LiftRightPlatform,
+    QuitGame,
+    MoveLeft,
+    MoveRight
+}
+
+[System.Serializable]
+public class InputBinding
+{
+    public InputActionType actionType;
+    public List<KeyCode> keys = new List<KeyCode>();
+}
 
 public class GameInputManager : MonoBehaviour
 {
     public static GameInputManager Instance { get; private set; }
 
-    public event Action OnAttackPressed;
-    public event Action OnJumpPressed;
-    public event Action OnCrouchStart;
-    public event Action OnCrouchEnd;
-
-    public event Action OnLeftPressed;
-    public event Action OnRightPressed;
-
-    public Vector2 MovementInput { get; private set; }
+    public List<InputBinding> bindings = new List<InputBinding>();
 
     private void Awake()
     {
         Instance = this;
     }
 
-    private void Update()
+    public bool IsActionPressed(InputActionType actionType)
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-        MovementInput = new Vector2(moveX, moveY).normalized;
+        foreach (var binding in bindings)
+        {
+            if (binding.actionType == actionType)
+            {
+                foreach (var key in binding.keys)
+                {
+                    if (Input.GetKey(key)) return true;
+                }
+            }
+        }
+        return false;
+    }
 
-        if (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.J)) OnAttackPressed?.Invoke();
-        if (Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) OnJumpPressed?.Invoke();
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) OnCrouchStart?.Invoke();
-        if (Input.GetKeyUp(KeyCode.S) || Input.GetKeyUp(KeyCode.DownArrow)) OnCrouchEnd?.Invoke();
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) OnLeftPressed?.Invoke();
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) OnRightPressed?.Invoke();
+    public bool IsActionDown(InputActionType actionType)
+    {
+        foreach (var binding in bindings)
+        {
+            if (binding.actionType == actionType)
+            {
+                foreach (var key in binding.keys)
+                {
+                    if (Input.GetKeyDown(key)) return true;
+                }
+            }
+        }
+        return false;
     }
 }
