@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Missile
+  - Target
+  - Ant
+  - BadAnt
   layers:
   - Default
   - TransparentFX
@@ -14,8 +18,8 @@ TagManager:
   - UI
   - Ground
   - Enemy
-  - 
-  - 
+  - Ant
+  - BadAnt
   - 
   - 
   - 
