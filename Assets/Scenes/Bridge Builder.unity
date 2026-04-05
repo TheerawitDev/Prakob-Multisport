@@ -350,13 +350,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54625bb3ecc6eb7489c82515a012e76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformLifter
-  side: 1
+  liftAction: 0
   liftSpeed: 5
   dropSpeed: 4
   defaultLocalY: 0.85
   maxLocalY: 4.63
-  joyconWest: 332
-  joyconEast: 331
 --- !u!50 &223917871
 Rigidbody2D:
   serializedVersion: 5
@@ -976,13 +974,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54625bb3ecc6eb7489c82515a012e76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformLifter
-  side: 0
+  liftAction: 0
   liftSpeed: 5
   dropSpeed: 4
   defaultLocalY: 0.85
   maxLocalY: 4.63
-  joyconWest: 332
-  joyconEast: 331
 --- !u!50 &863338710
 Rigidbody2D:
   serializedVersion: 5
@@ -2131,7 +2127,6 @@ MonoBehaviour:
   damagePenalty: 34
   successEffect: {fileID: 0}
   damageEffect: {fileID: 0}
-  baseHealth: {fileID: 1518116328}
 --- !u!114 &1518116328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2167,7 +2162,7 @@ MonoBehaviour:
   OnDeath:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1889960604}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: GameOver
         m_Mode: 1
@@ -2514,8 +2509,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1889960605}
-  - component: {fileID: 1889960604}
   - component: {fileID: 1889960603}
+  - component: {fileID: 1889960606}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -2535,57 +2530,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db423a4612c958e4a9830ed7911e4c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1889960604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889960601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01feeead106ff474393cbe4e202fdf40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentScore: 0
-  OnScoreChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 955242170}
-        m_TargetAssemblyTypeName: ScoreUI, Assembly-CSharp
-        m_MethodName: UpdateScoreDisplay
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnGameOver:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1068881542}
-        m_TargetAssemblyTypeName: GameFlowUI, Assembly-CSharp
-        m_MethodName: ShowGameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnLevelComplete:
-    m_PersistentCalls:
-      m_Calls: []
-  keyboardQuitKey: 27
-  quitButton1: 334
-  quitButton2: 335
-  quitButton3: 338
-  quitButton4: 339
+  bindings:
+  - actionType: 0
+    keys: 140100004c010000
+  - actionType: 1
+    keys: 130100004b010000
+  - actionType: 2
+    keys: 1b0000004f010000
 --- !u!4 &1889960605
 Transform:
   m_ObjectHideFlags: 0
@@ -2601,6 +2552,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1889960606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889960601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9248b8dbe3d5b489a99b2139560682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BridgeGameManager
+  maxBaseHealth: 100
+  currentHealth: 0
+  currentScore: 0
+  isGameActive: 1
+  scoreText: {fileID: 0}
+  healthFill: {fileID: 0}
+  gameOverPanel: {fileID: 0}
+  retryButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!1 &1937906609
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,6 +2720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2040321383}
   - component: {fileID: 2040321382}
+  - component: {fileID: 2040321384}
   m_Layer: 0
   m_Name: DeathZone
   m_TagString: Untagged
@@ -2816,6 +2789,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2040321384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040321381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38db05e1af01da42bfa6541ee693a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbyssZone
 --- !u!1 &2121449893
 GameObject:
   m_ObjectHideFlags: 0
