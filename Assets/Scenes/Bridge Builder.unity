@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54625bb3ecc6eb7489c82515a012e76c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformLifter
-  liftAction: 0
+  liftAction: 1
   liftSpeed: 5
   dropSpeed: 4
   defaultLocalY: 0.85
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1068881542}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameFlowUI, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
@@ -783,7 +783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8791e22e84d6a46a184e3fcf83f9ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthFill: {fileID: 1495454645}
 --- !u!114 &825577182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,8 +1193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358a5b00a22d7f49bffd423373464a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 955242171}
-  prefix: 'Score: '
 --- !u!114 &955242171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1663,7 +1660,6 @@ GameObject:
   - component: {fileID: 1068881545}
   - component: {fileID: 1068881544}
   - component: {fileID: 1068881543}
-  - component: {fileID: 1068881542}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1671,21 +1667,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1068881542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1068881541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b1a957d69c42db468a6618d6540519e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 1847024899}
-  winPanel: {fileID: 0}
-  firstSelectedButton: {fileID: 718892728}
 --- !u!114 &1068881543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1823,8 +1804,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba6f514ea8ee2e45932c348735a16b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveText: {fileID: 2121449895}
-  waveAnnouncementPanel: {fileID: 0}
 --- !u!114 &1332012347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2085,7 +2064,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1518116326}
   - component: {fileID: 1518116329}
-  - component: {fileID: 1518116328}
   - component: {fileID: 1518116327}
   m_Layer: 0
   m_Name: GameObject
@@ -2127,53 +2105,6 @@ MonoBehaviour:
   damagePenalty: 34
   successEffect: {fileID: 0}
   damageEffect: {fileID: 0}
---- !u!114 &1518116328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518116325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de6a18415bb54e44a9c57226bdd7d0b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthSystem
-  maxHealth: 100
-  invincibilityDuration: 2
-  OnHealthChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 825577181}
-        m_TargetAssemblyTypeName: HealthUI, Assembly-CSharp
-        m_MethodName: UpdateHealthBar
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnDamageTaken:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameOver
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!61 &1518116329
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2261,34 +2192,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1756718032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0206d0a78d2ecdc499be107959e39542, type: 3}
+  m_Script: {fileID: 11500000, guid: ba1318bf1ed1b9845a48388384e91052, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WaveManager
-  waves:
-  - waveName: 
-    enemyPrefabs:
-    - {fileID: 8657882564955298393, guid: f2a165e9063b75446beec1b774492dc3, type: 3}
-    - {fileID: 5962339089131421282, guid: 499817d0d5e127943aad5dd4a3462a9c, type: 3}
-    - {fileID: 5962339089131421282, guid: 499817d0d5e127943aad5dd4a3462a9c, type: 3}
-    - {fileID: 8657882564955298393, guid: f2a165e9063b75446beec1b774492dc3, type: 3}
-    - {fileID: 8657882564955298393, guid: f2a165e9063b75446beec1b774492dc3, type: 3}
-    - {fileID: 5962339089131421282, guid: 499817d0d5e127943aad5dd4a3462a9c, type: 3}
-    - {fileID: 8657882564955298393, guid: f2a165e9063b75446beec1b774492dc3, type: 3}
-    spawnInterval: 4
-    isEndless: 1
-    enemyCount: 0
-  spawnPoints:
-  - {fileID: 1756718033}
-  timeBetweenWaves: 3
-  OnWaveStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnWaveCompleted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAllWavesCompleted:
-    m_PersistentCalls:
-      m_Calls: []
+  m_EditorClassIdentifier: Assembly-CSharp::AntSpawner
+  antPrefabs:
+  - {fileID: 8657882564955298393, guid: f2a165e9063b75446beec1b774492dc3, type: 3}
+  - {fileID: 5962339089131421282, guid: 499817d0d5e127943aad5dd4a3462a9c, type: 3}
+  spawnPoint: {fileID: 1756718033}
+  spawnInterval: 2
 --- !u!1 &1765727146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,7 +2283,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1068881542}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameFlowUI, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -2568,11 +2479,11 @@ MonoBehaviour:
   currentHealth: 0
   currentScore: 0
   isGameActive: 1
-  scoreText: {fileID: 0}
-  healthFill: {fileID: 0}
-  gameOverPanel: {fileID: 0}
-  retryButton: {fileID: 0}
-  quitButton: {fileID: 0}
+  scoreText: {fileID: 955242171}
+  healthFill: {fileID: 1495454645}
+  gameOverPanel: {fileID: 1847024899}
+  retryButton: {fileID: 718892730}
+  quitButton: {fileID: 1765727148}
 --- !u!1 &1937906609
 GameObject:
   m_ObjectHideFlags: 0
