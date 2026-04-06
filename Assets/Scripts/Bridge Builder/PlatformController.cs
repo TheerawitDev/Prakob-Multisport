@@ -22,6 +22,7 @@ public class PlatformLifter : MonoBehaviour
     private void FixedUpdate()
     {
         if (GameInputManager.Instance == null) return;
+        if (BridgeGameManager.Instance != null && !BridgeGameManager.Instance.isGameActive) return;
 
         Vector3 currentLocalPos = transform.localPosition;
         bool isPressing = GameInputManager.Instance.IsActionPressed(liftAction);

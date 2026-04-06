@@ -135,8 +135,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FallingItem
   type: 1
   scoreValue: 10
-  damageValue: 33
+  damageValue: 34
   fallSpeed: 5
+  rotationSpeed: 180
   effectPrefab: {fileID: 0}
 --- !u!61 &3723608556219611489
 BoxCollider2D:
