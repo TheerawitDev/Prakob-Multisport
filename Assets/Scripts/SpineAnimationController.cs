@@ -8,6 +8,7 @@ public class SpineAnimationController : MonoBehaviour
     private void Awake()
     {
         skeletonAnimation = GetComponent<SkeletonAnimation>();
+        PlayIdle();
     }
 
     public void PlayIdle()

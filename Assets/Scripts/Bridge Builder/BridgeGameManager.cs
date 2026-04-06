@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class BridgeGameManager : MonoBehaviour
 {
@@ -10,9 +11,11 @@ public class BridgeGameManager : MonoBehaviour
     public int maxBaseHealth = 100;
     public int currentHealth;
     public int currentScore;
-    public bool isGameActive = true;
+    public bool isGameActive = false;
 
     [Header("UI References")]
+    public GameObject mainMenuPanel;
+    public Button startButton;
     public TextMeshProUGUI scoreText;
     public Image healthFill;
     public GameObject gameOverPanel;
@@ -29,8 +32,15 @@ public class BridgeGameManager : MonoBehaviour
     {
         if (gameOverPanel != null) gameOverPanel.SetActive(false);
 
+        if (startButton != null) startButton.onClick.AddListener(StartGame);
         if (retryButton != null) retryButton.onClick.AddListener(RestartGame);
         if (quitButton != null) quitButton.onClick.AddListener(QuitGame);
+
+        if (mainMenuPanel != null)
+        {
+            mainMenuPanel.SetActive(true);
+            SetUIFocus(startButton.gameObject);
+        }
 
         UpdateUI();
     }
@@ -44,6 +54,12 @@ public class BridgeGameManager : MonoBehaviour
                 TriggerGameOver();
             }
         }
+    }
+
+    public void StartGame()
+    {
+        isGameActive = true;
+        if (mainMenuPanel != null) mainMenuPanel.SetActive(false);
     }
 
     public void AddScore(int amount)
@@ -75,7 +91,20 @@ public class BridgeGameManager : MonoBehaviour
     public void TriggerGameOver()
     {
         isGameActive = false;
-        if (gameOverPanel != null) gameOverPanel.SetActive(true);
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+            SetUIFocus(retryButton.gameObject);
+        }
+    }
+
+    private void SetUIFocus(GameObject firstSelected)
+    {
+        if (EventSystem.current != null && firstSelected != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelected);
+        }
     }
 
     private void RestartGame()
