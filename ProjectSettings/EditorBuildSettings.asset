@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Center Defender.unity
     guid: a905dc690927ddf4d9bda889024f4747
   - enabled: 1
-    path: Assets/Scenes/Bridge Builder.unity
+    path: Assets/[Example]BridgeBuilder/Bridge Builder Example.unity
     guid: a499c31d4d61f8b4cb2f53bf935997a0
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
