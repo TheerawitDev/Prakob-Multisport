@@ -7,7 +7,9 @@ public enum InputActionType
     LiftRightPlatform,
     QuitGame,
     MoveLeft,
-    MoveRight
+    MoveRight,
+    MoveUp,
+    MoveDown
 }
 
 [System.Serializable]

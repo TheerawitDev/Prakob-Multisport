@@ -682,7 +682,7 @@ MonoBehaviour:
   - {fileID: 1379464345989322890, guid: db2f74f21e6c31446a2bb2764d3c4a12, type: 3}
   - {fileID: 1379464345989322890, guid: 8e11f2a650db1e0429c362a6c40e04ca, type: 3}
   - {fileID: 1379464345989322890, guid: eacd57fcecb41f445836f07843f78dce, type: 3}
-  spawnInterval: 0.2
+  spawnInterval: 1
   minX: -8
   maxX: 8
 --- !u!4 &840651858
@@ -1895,7 +1895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204842f667dcfdd4c95aad05b7fdb421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketController
-  moveSpeed: 10
+  moveSpeed: 2
   minX: -8
   maxX: 8
 --- !u!50 &1685404911
