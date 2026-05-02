@@ -9,10 +9,26 @@ public class BridgeGameManager : MonoBehaviour
 {
     public static BridgeGameManager Instance { get; private set; }
 
+    public bool isGameActive = false;
+
+    [Header("Platform Settings")]
+    public float liftSpeed = 5f;
+    public float dropSpeed = 4f;
+    public float platformMinY = -3f;
+    public float platformMaxY = 2f;
+
+    [Header("Spawner Settings")]
+    public GameObject[] antPrefabs;
+    public float spawnInterval = 2f;
+
+    [Header("Scoring Settings")]
+    public int goodAntScore = 10;
+    public int badAntDamage = 10;
+
+    [Header("Player Health")]
     public int maxBaseHealth = 100;
     public int currentHealth;
     public int currentScore;
-    public bool isGameActive = false;
 
     [Header("UI References")]
     public GameObject mainMenuPanel;

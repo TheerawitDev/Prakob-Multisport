@@ -1,9 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class AntWalker : MonoBehaviour
 {
     public float walkSpeed = 2f;
+
     private Rigidbody2D rb;
     private SpineAnimationController animController;
 
@@ -23,6 +24,12 @@ public class AntWalker : MonoBehaviour
 
     private void Update()
     {
+        if (BridgeGameManager.Instance != null && !BridgeGameManager.Instance.isGameActive)
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            return;
+        }
+
         rb.linearVelocity = new Vector2(walkSpeed, rb.linearVelocity.y);
     }
 }

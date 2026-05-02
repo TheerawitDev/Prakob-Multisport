@@ -5,9 +5,6 @@ public class FinishPoint : MonoBehaviour
     public string goodAntTag = "Ant";
     public string badAntTag = "BadAnt";
 
-    public int scoreReward = 10;
-    public int damagePenalty = 10;
-
     public GameObject successEffect;
     public GameObject damageEffect;
 
@@ -17,7 +14,7 @@ public class FinishPoint : MonoBehaviour
         {
             if (BridgeGameManager.Instance != null)
             {
-                BridgeGameManager.Instance.AddScore(scoreReward);
+                BridgeGameManager.Instance.AddScore(BridgeGameManager.Instance.goodAntScore);
             }
 
             if (successEffect != null)
@@ -31,7 +28,7 @@ public class FinishPoint : MonoBehaviour
         {
             if (BridgeGameManager.Instance != null)
             {
-                BridgeGameManager.Instance.TakeDamage(damagePenalty);
+                BridgeGameManager.Instance.TakeDamage(BridgeGameManager.Instance.badAntDamage);
             }
 
             if (damageEffect != null)

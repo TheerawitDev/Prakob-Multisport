@@ -5,11 +5,6 @@ public class PlatformLifter : MonoBehaviour
 {
     public InputActionType liftAction;
 
-    public float liftSpeed = 5f;
-    public float dropSpeed = 4f;
-    public float defaultLocalY = -3f;
-    public float maxLocalY = 2f;
-
     private Rigidbody2D rb;
 
     private void Awake()
@@ -22,21 +17,26 @@ public class PlatformLifter : MonoBehaviour
     private void FixedUpdate()
     {
         if (GameInputManager.Instance == null) return;
-        if (BridgeGameManager.Instance != null && !BridgeGameManager.Instance.isGameActive) return;
+        if (BridgeGameManager.Instance == null || !BridgeGameManager.Instance.isGameActive) return;
 
         Vector3 currentLocalPos = transform.localPosition;
         bool isPressing = GameInputManager.Instance.IsActionPressed(liftAction);
 
+        float liftSpd = BridgeGameManager.Instance.liftSpeed;
+        float dropSpd = BridgeGameManager.Instance.dropSpeed;
+        float minY = BridgeGameManager.Instance.platformMinY;
+        float maxY = BridgeGameManager.Instance.platformMaxY;
+
         if (isPressing)
         {
-            currentLocalPos.y += liftSpeed * Time.fixedDeltaTime;
+            currentLocalPos.y += liftSpd * Time.fixedDeltaTime;
         }
         else
         {
-            currentLocalPos.y -= dropSpeed * Time.fixedDeltaTime;
+            currentLocalPos.y -= dropSpd * Time.fixedDeltaTime;
         }
 
-        currentLocalPos.y = Mathf.Clamp(currentLocalPos.y, defaultLocalY, maxLocalY);
+        currentLocalPos.y = Mathf.Clamp(currentLocalPos.y, minY, maxY);
 
         Vector2 targetGlobalPos = transform.parent != null
             ? transform.parent.TransformPoint(currentLocalPos)

@@ -267,7 +267,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gravity Maze
+  m_text: Catching Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -677,14 +677,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f908e78fa6c871b47ab91da2c3c35b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSpawner
-  itemPrefabs:
-  - {fileID: 1379464345989322890, guid: e182889b8d060594da5626dad148e49b, type: 3}
-  - {fileID: 1379464345989322890, guid: db2f74f21e6c31446a2bb2764d3c4a12, type: 3}
-  - {fileID: 1379464345989322890, guid: 8e11f2a650db1e0429c362a6c40e04ca, type: 3}
-  - {fileID: 1379464345989322890, guid: eacd57fcecb41f445836f07843f78dce, type: 3}
-  spawnInterval: 1
-  minX: -8
-  maxX: 8
 --- !u!4 &840651858
 Transform:
   m_ObjectHideFlags: 0
@@ -1895,9 +1887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 204842f667dcfdd4c95aad05b7fdb421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BasketController
-  moveSpeed: 2
-  minX: -8
-  maxX: 8
 --- !u!50 &1685404911
 Rigidbody2D:
   serializedVersion: 5
@@ -2217,10 +2206,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c0238b9dc9ecf4e978a7f372ff9063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CatchGameManager
+  isGameActive: 0
+  basketMoveSpeed: 10
+  basketMinX: -8
+  basketMaxX: 8
+  itemPrefabs:
+  - {fileID: 1379464345989322890, guid: e182889b8d060594da5626dad148e49b, type: 3}
+  - {fileID: 1379464345989322890, guid: db2f74f21e6c31446a2bb2764d3c4a12, type: 3}
+  - {fileID: 1379464345989322890, guid: 8e11f2a650db1e0429c362a6c40e04ca, type: 3}
+  - {fileID: 1379464345989322890, guid: eacd57fcecb41f445836f07843f78dce, type: 3}
+  spawnInterval: 0.5
+  spawnMinX: -8
+  spawnMaxX: 8
   maxHealth: 100
   currentHealth: 0
   currentScore: 0
-  isGameActive: 0
   mainMenuPanel: {fileID: 912618529}
   startButton: {fileID: 1009622197}
   scoreText: {fileID: 955242171}

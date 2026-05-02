@@ -351,10 +351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformLifter
   liftAction: 1
-  liftSpeed: 5
-  dropSpeed: 4
-  defaultLocalY: -1
-  maxLocalY: 2.855
 --- !u!50 &223917871
 Rigidbody2D:
   serializedVersion: 5
@@ -974,10 +970,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlatformLifter
   liftAction: 0
-  liftSpeed: 5
-  dropSpeed: 4
-  defaultLocalY: -1
-  maxLocalY: 2.855
 --- !u!50 &863338710
 Rigidbody2D:
   serializedVersion: 5
@@ -1942,7 +1934,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Gravity Maze
+  m_text: Bridge Builder
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2434,8 +2426,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FinishPoint
   goodAntTag: Ant
   badAntTag: BadAnt
-  scoreReward: 50
-  damagePenalty: 100
   successEffect: {fileID: 0}
   damageEffect: {fileID: 0}
 --- !u!61 &1518116329
@@ -2528,12 +2518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1318bf1ed1b9845a48388384e91052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AntSpawner
-  antPrefabs:
-  - {fileID: 8657882564955298393, guid: f2a165e9063b75446beec1b774492dc3, type: 3}
-  - {fileID: 5962339089131421282, guid: 499817d0d5e127943aad5dd4a3462a9c, type: 3}
-  - {fileID: 8657882564955298393, guid: d30d8ed8b0c02874da545a23d887ff2d, type: 3}
   spawnPoint: {fileID: 1756718033}
-  spawnInterval: 2
 --- !u!1 &1765727146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2809,10 +2794,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9248b8dbe3d5b489a99b2139560682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BridgeGameManager
+  isGameActive: 0
+  liftSpeed: 5
+  dropSpeed: 4
+  platformMinY: -1
+  platformMaxY: 2.845
+  antPrefabs:
+  - {fileID: 8657882564955298393, guid: d30d8ed8b0c02874da545a23d887ff2d, type: 3}
+  - {fileID: 8657882564955298393, guid: 61b9b34d94f98cc4aab4c407ff98e6d7, type: 3}
+  - {fileID: 8657882564955298393, guid: f2a165e9063b75446beec1b774492dc3, type: 3}
+  - {fileID: 5962339089131421282, guid: 499817d0d5e127943aad5dd4a3462a9c, type: 3}
+  spawnInterval: 2
+  goodAntScore: 10
+  badAntDamage: 100
   maxBaseHealth: 100
   currentHealth: 0
   currentScore: 0
-  isGameActive: 0
   mainMenuPanel: {fileID: 1972991142}
   startButton: {fileID: 1000314695}
   scoreText: {fileID: 955242171}

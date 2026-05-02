@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallingItem
   type: 1
-  scoreValue: 10
+  scoreValue: -100
   damageValue: 34
   fallSpeed: 5
   rotationSpeed: 180

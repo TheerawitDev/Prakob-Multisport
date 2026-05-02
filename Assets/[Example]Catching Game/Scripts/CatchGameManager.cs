@@ -9,10 +9,23 @@ public class CatchGameManager : MonoBehaviour
 {
     public static CatchGameManager Instance { get; private set; }
 
+    public bool isGameActive = false;
+
+    [Header("Player Settings")]
+    public float basketMoveSpeed = 10f;
+    public float basketMinX = -8f;
+    public float basketMaxX = 8f;
+
+    [Header("Spawner Settings")]
+    public GameObject[] itemPrefabs;
+    public float spawnInterval = 1f;
+    public float spawnMinX = -8f;
+    public float spawnMaxX = 8f;
+
+    [Header("Player Health")]
     public int maxHealth = 3;
     public int currentHealth;
     public int currentScore;
-    public bool isGameActive = false;
 
     [Header("UI References")]
     public GameObject mainMenuPanel;

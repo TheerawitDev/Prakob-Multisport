@@ -5,15 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Gravity Maze.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 0
-    path: Assets/Scenes/Center Defender.unity
-    guid: a905dc690927ddf4d9bda889024f4747
   - enabled: 1
-    path: Assets/[Example]BridgeBuilder/Bridge Builder Example.unity
-    guid: a499c31d4d61f8b4cb2f53bf935997a0
+    path: Assets/[Example]Gravity Maze/Gravity Maze 2 Example.unity
+    guid: f2eac97b09831af449a57f9f60777258
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

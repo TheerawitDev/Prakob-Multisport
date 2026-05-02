@@ -3,10 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class BasketController : MonoBehaviour
 {
-    public float moveSpeed = 10f;
-    public float minX = -8f;
-    public float maxX = 8f;
-
     private Rigidbody2D rb;
     private SpineAnimationController animController;
     private bool isWalking = false;
@@ -29,19 +25,24 @@ public class BasketController : MonoBehaviour
     private void FixedUpdate()
     {
         if (GameInputManager.Instance == null) return;
+        if (CatchGameManager.Instance == null || !CatchGameManager.Instance.isGameActive) return;
 
         Vector2 currentPos = rb.position;
         bool isPressingMove = false;
 
+        float speed = CatchGameManager.Instance.basketMoveSpeed;
+        float minX = CatchGameManager.Instance.basketMinX;
+        float maxX = CatchGameManager.Instance.basketMaxX;
+
         if (GameInputManager.Instance.IsActionPressed(InputActionType.MoveLeft))
         {
-            currentPos.x -= moveSpeed * Time.fixedDeltaTime;
+            currentPos.x -= speed * Time.fixedDeltaTime;
             transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             isPressingMove = true;
         }
         else if (GameInputManager.Instance.IsActionPressed(InputActionType.MoveRight))
         {
-            currentPos.x += moveSpeed * Time.fixedDeltaTime;
+            currentPos.x += speed * Time.fixedDeltaTime;
             transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             isPressingMove = true;
         }
